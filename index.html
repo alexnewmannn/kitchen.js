@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+	<section class="container">
+		<header>
+			<h1>Kitchen</h1>
+		</header>
+
+		<article class="recipe">
+			<textarea id="test">Enter your recipe</textarea>
+		</article>
+	</section>
+	<script src="App/codemirror.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/codemirror/CodeMirror/master/mode/xml/xml.js"></script>
+	<script src="https://codemirror.net/addon/scroll/simplescrollbars.js"></script>
+	<script src="bundle.js"></script>
+
+	<script type="text/javascript">
+		// var myCodeMirror = CodeMirror(document.body, {
+		// 	theme: 'base16-dark',
+		// 	mode: 'javascript'
+		// });
+	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('test'), {
+		theme: 'tomorrow-night-eighties',
+		lineNumbers: true,
+		styleActiveLine: true,
+		matchBrackets: true,
+		scrollbarStyle: 'overlay'
+	});
+	</script>
+</body>
+</html>

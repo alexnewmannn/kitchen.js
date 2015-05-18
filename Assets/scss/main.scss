@@ -1,0 +1,18 @@
+@import "_variables";
+@import "_typography";
+@import "_header";
+@import "_codemirror";
+
+body {
+	background: #263238;
+}
+
+.container {
+	width: 1000px;
+	margin: auto;
+}
+
+textarea {
+	height: 500px;
+}
+
