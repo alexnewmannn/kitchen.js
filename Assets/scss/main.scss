@@ -16,3 +16,24 @@ textarea {
 	height: 500px;
 }
 
+button {
+	border: none;
+	margin: 15px auto;
+	text-align: center;
+	padding: 10px;
+	width: 20%;
+	font-size: 20px;
+	text-transform: uppercase;
+	background: #009688;
+	color: #fff;
+
+	&:hover {
+		background: #00897b;
+	}
+}
+
+.button-wrapper {
+	text-align: center;
+}
+
+// will modularise this code later, too lazy and tired

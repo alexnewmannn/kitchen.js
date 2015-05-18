@@ -16,7 +16,9 @@
 		<article class="recipe">
 			<form>
 				<textarea id="recipe">Enter your recipe</textarea>
-				<button type="button">Submit</button>
+				<div class="button-wrapper">
+					<button type="button">Submit</button>
+				</div>
 			</form>
 		</article>
 	</section>
@@ -27,18 +29,13 @@
 	<script src="bundle.js"></script>
 
 	<script type="text/javascript">
-		// var myCodeMirror = CodeMirror(document.body, {
-		// 	theme: 'base16-dark',
-		// 	mode: 'javascript'
-		// });
-	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('recipe'), {
-		theme: 'tomorrow-night-eighties',
-		lineNumbers: true,
-		styleActiveLine: true,
-		matchBrackets: true,
-		scrollbarStyle: 'overlay'
-	});
-
+		var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('recipe'), {
+			theme: 'tomorrow-night-eighties',
+			lineNumbers: true,
+			styleActiveLine: true,
+			matchBrackets: true,
+			scrollbarStyle: 'overlay'
+		});
 	</script>
 </body>
 </html>
