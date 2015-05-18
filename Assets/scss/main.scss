@@ -30,6 +30,11 @@ button {
 	&:hover {
 		background: #00897b;
 	}
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
 }
 
 .button-wrapper {

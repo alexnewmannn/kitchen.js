@@ -10,9 +10,16 @@ $(function() {
 		var recipe = $('#recipe').val();
 		recipe = xmlToJSON.parseString(recipe, {
 			childrenAsArray: false
-		}).Orchard.Recipe;
+		});
+
+		$('button').text($('button').data('success'))
 
 
-		console.log(recipe)
+		console.log(recipe.Orchard.Recipe)
+	});
+
+	myCodeMirror.on('change', function() {
+		// Reset button text
+		$('button').text('Save');
 	});
 });
