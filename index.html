@@ -14,10 +14,14 @@
 		</header>
 
 		<article class="recipe">
-			<textarea id="test">Enter your recipe</textarea>
+			<form>
+				<textarea id="recipe">Enter your recipe</textarea>
+				<button type="button">Submit</button>
+			</form>
 		</article>
 	</section>
 	<script src="App/codemirror.js"></script>
+	<script src="App/xmltojson.js"></script>
 	<script type="text/javascript" src="https://cdn.rawgit.com/codemirror/CodeMirror/master/mode/xml/xml.js"></script>
 	<script src="https://codemirror.net/addon/scroll/simplescrollbars.js"></script>
 	<script src="bundle.js"></script>
@@ -27,13 +31,14 @@
 		// 	theme: 'base16-dark',
 		// 	mode: 'javascript'
 		// });
-	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('test'), {
+	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('recipe'), {
 		theme: 'tomorrow-night-eighties',
 		lineNumbers: true,
 		styleActiveLine: true,
 		matchBrackets: true,
 		scrollbarStyle: 'overlay'
 	});
+
 	</script>
 </body>
 </html>
