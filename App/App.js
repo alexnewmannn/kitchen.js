@@ -63,7 +63,7 @@ $(function() {
 		$(document).trigger('modalOpen');
 
 		$(document).on('modalOpen', function() {
-			$(this).on('keypress', function(e) {
+			$(this).on('keydown', function(e) {
 				if (e.keyCode === 27) {
 					$('.backdrop').addClass('hide');
 				}
