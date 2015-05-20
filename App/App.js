@@ -6,14 +6,22 @@ var $ = require('jquery'),
 
 $(function() {
 	var self = this;
+	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('recipe'), {
+		theme: 'tomorrow-night-eighties',
+		lineNumbers: true,
+		styleActiveLine: true,
+		matchBrackets: true,
+		scrollbarStyle: 'overlay'
+	});
+
 	$('button').on('click', function() {
 		var layerNames = [];
 		var widgetLayers = [];
-		var recipe = $('#recipe').val();
 
 		self.addBindings();
 		myCodeMirror.save();
 
+		var recipe = $('#recipe').val();
 		recipe = xmlToJSON.parseString(recipe, {
 			childrenAsArray: false
 		}).Orchard.Data;

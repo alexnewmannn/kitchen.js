@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="dist/css/main.css">
 </head>
@@ -22,21 +21,7 @@
 			</form>
 		</article>
 	</section>
-	<script src="App/codemirror.js"></script>
-	<script src="App/xmltojson.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/codemirror/CodeMirror/master/mode/xml/xml.js"></script>
-	<script src="https://codemirror.net/addon/scroll/simplescrollbars.js"></script>
-	<script src="bundle.js"></script>
 
-	<script type="text/javascript">
-		var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('recipe'), {
-			theme: 'tomorrow-night-eighties',
-			lineNumbers: true,
-			styleActiveLine: true,
-			matchBrackets: true,
-			scrollbarStyle: 'overlay'
-		});
-	</script>
 
 	<div class="backdrop hide">
 		<div class="results">
@@ -59,5 +44,11 @@
 
 		</div>
 	</script>
+
+	<script src="App/codemirror.js"></script>
+	<script src="App/xmltojson.js"></script>
+	<script src="App/xml.js"></script>
+	<script src="App/simplescrollbars.js"></script>
+	<script src="bundle.js"></script>
 </body>
 </html>
