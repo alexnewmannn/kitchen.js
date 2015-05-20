@@ -2,9 +2,20 @@
 @import "_typography";
 @import "_header";
 @import "_codemirror";
+@import "_results";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
 body {
 	background: #263238;
+}
+
+.hide {
+	display: none;
 }
 
 .container {
@@ -29,6 +40,7 @@ button {
 
 	&:hover {
 		background: #00897b;
+		background: $green-dark;
 	}
 
 	&:active,
@@ -41,4 +53,11 @@ button {
 	text-align: center;
 }
 
+pre {
+	font-family: $mono-font;
+	font-size: 1.4rem;
+	overflow: hidden;
+}
+
 // will modularise this code later, too lazy and tired
+// update, i'm still tired.

@@ -15,7 +15,7 @@
 
 		<article class="recipe">
 			<form>
-				<textarea id="recipe">Enter your recipe</textarea>
+				<textarea id="recipe">Enter your recipe here!</textarea>
 				<div class="button-wrapper">
 					<button type="button" data-success="Saved!">Save</button>
 				</div>
@@ -36,6 +36,28 @@
 			matchBrackets: true,
 			scrollbarStyle: 'overlay'
 		});
+	</script>
+
+	<div class="backdrop hide">
+		<div class="results">
+			<div class="close"></div>
+			<h1>You have a few broken layers... Try adding these to your recipe!</h1>
+			<div class="layers">
+				<div class="layer-container"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/template" id="layerTemplate">
+		<div class="layer-item">
+
+<pre>&lt;Layer Id="/Layer.LayerName=<%= layerName %>" Status="Published">
+	&lt;LayerPart Name="<%= layerName %>" Description="iPhone Games pages on desktop" LayerRule="url(&quot;~/mobile/iphone-games/*&quot;) and not mobile" />
+	&lt;CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2013-09-11T13:00:33Z" PublishedUtc="2014-05-20T09:39:46Z" ModifiedUtc="2014-05-23T10:43:55Z" />
+&lt;/Layer></pre>
+
+		</div>
 	</script>
 </body>
 </html>

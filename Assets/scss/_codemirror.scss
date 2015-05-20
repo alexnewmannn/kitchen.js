@@ -401,7 +401,7 @@ span.CodeMirror-selectedtext { background: none; }
 
 */
 
-.cm-s-tomorrow-night-eighties.CodeMirror {background: #37474f; color: #e0e0e0; font-size: 1.5rem;}
+.cm-s-tomorrow-night-eighties.CodeMirror {background: $dark-grey; color: #e0e0e0; font-size: 1.5rem;}
 .cm-s-tomorrow-night-eighties div.CodeMirror-selected {background: #2D2D2D !important;}
 .cm-s-tomorrow-night-eighties.CodeMirror ::selection { background: rgba(45, 45, 45, 0.99); }
 .cm-s-tomorrow-night-eighties.CodeMirror ::-moz-selection { background: rgba(45, 45, 45, 0.99); }
