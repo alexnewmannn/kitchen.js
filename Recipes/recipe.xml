@@ -311,7 +311,7 @@
     <!-- Layers -->
 
     <Layer Id="/Layer.LayerName=iPhone Games - Desktop" Status="Published">
-      <LayerPart Name="iPhone Games - Desktop" Description="iPhone Games pages on desktop" LayerRule="url(&quot;~/mobile/iphone-games/*&quot;) and not mobile" />
+      <LayerPart Name="iPhone Games - Desssktop" Description="iPhone Games pages on desktop" LayerRule="url(&quot;~/mobile/iphone-games/*&quot;) and not mobile" />
       <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2013-09-11T13:00:33Z" PublishedUtc="2014-05-20T09:39:46Z" ModifiedUtc="2014-05-23T10:43:55Z" />
     </Layer>
     <Layer Id="/Layer.LayerName=VIP Pages - Desktop" Status="Published">
