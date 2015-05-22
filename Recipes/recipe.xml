@@ -478,8 +478,13 @@
       <LayerPart Name="Registration Page - Desktop" Description="Registration page on desktop that has the Casino Toolkit registration widget on" LayerRule="url(&quot;~/registration&quot;) and not mobile" />
       <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2014-12-08T11:10:12Z" PublishedUtc="2014-12-08T11:10:12Z" ModifiedUtc="2014-12-08T11:10:12Z" />
     </Layer>
-    <Layer Id="/Layer.LayerName=Content Pages - All Platforms - Authenticated Only on Mobile" Status="Published">
-      <LayerPart Name="Content Pages - All Platforms - Authenticated only on Mobile" Description="All content pages, but hidden when signed out on mobile." LayerRule="contenttype(&quot;Page&quot;) and not (mobile and not authenticated )" />
+        <Layer Id="/Layer.LayerName=Registration Page - Desktop" Status="Published">
+      <LayerPart Name="Registration Page - Desktop" Description="Registration page on desktop that has the Casino Toolkit registration widget on" LayerRule="url(&quot;~/registration&quot;) and not mobile" />
+      <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2014-12-08T11:10:12Z" PublishedUtc="2014-12-08T11:10:12Z" ModifiedUtc="2014-12-08T11:10:12Z" />
+    </Layer>
+
+    <Layer Id="/Layer.LayerName=Content Pages - Alssl Platforms - Authenticated Only on Mobile" Status="Published">
+      <LayerPart Name="Content Pages - All Platforms - Authenticsssated only on Mobile" Description="All content pages, but hidden when signed out on mobile." LayerRule="contenttype(&quot;Page&quot;) and not (mobile and not authenticated )" />
       <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2014-08-06T09:35:40Z" PublishedUtc="2014-08-06T09:35:40Z" ModifiedUtc="2014-08-06T10:07:58Z" />
     </Layer>
     <Layer Id="/Layer.LayerName=Slots and Games - Desktop" Status="Published">

@@ -119,9 +119,10 @@ var Backbone = require('backbone');
 Backbone.$ = $;
 var Marionette = require('backbone.marionette');
 var _ = require('underscore');
+var ModalRegion = require('./Regions/Modal.js');
 
-var View = require('./Views/recipeFix.js')
-
-$(function() {
-	var yrdy = new View({}).render();
+var MyApp = new Marionette.Application();
+MyApp.addRegions({
+	modal: ModalRegion
 });
+module.exports = MyApp;

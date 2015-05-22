@@ -4,8 +4,12 @@ var $ = require('jquery'),
 	Backbone = require('backbone'),
 	_ = require('underscore');
 
-// var Marionette = require('backbone.marionette');
 var fixTemplate = require('../Templates/recipeFixTemplate.hbs');
+var Modal = require('../Regions/Modal.js');
+var App = require('../App.js');
+var Success = require('./success.js');
+var Errors = require('./error.js');
+
 var myCodeMirror;
 var recipe;
 var layerCollection;
@@ -35,9 +39,9 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			childrenAsArray: false
 		}).Orchard.Data;
 
-		$('button').text($('button').data('success'))
+		$('button').text($('button').data('success'));
 
-		this.widgetLayerComparison();
+		this.duplicateLayer();
 	},
 
 	/*
@@ -48,6 +52,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		var layerNames = [];
 		var widgetLayers = [];
 		layerCollection = recipe.Layer;
+
 		_.map(layerCollection, function(currentLayer) {
 			layerNames.push('/Layer.LayerName=' + currentLayer.LayerPart._attr.Name._value);
 		});
@@ -68,7 +73,8 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			}
 		});
 
-		this.layerIdNameComparison()
+		var difference = _.difference(widgetLayers, layerNames);
+		console.log(difference);
 	},
 
 	/*
@@ -80,11 +86,33 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		var layerName = [];
 
 		_.each(recipe.Layer, function(currentLayer) {
-			layerId.push(currentLayer._attr.Id._value.split('=')[1])
+			layerId.push(currentLayer._attr.Id._value.split('=')[1]);
 			layerName.push(currentLayer.LayerPart._attr.Name._value);
 		});
 
 		var difference = _.difference(layerId, layerName);
+		console.log(difference);
+	},
+
+	duplicateLayer: function() {
+		var layers = [];
+		var duplicateLayers = [];
+
+		_.each(recipe.Layer, function(currentLayer) {
+			layers.push(currentLayer.LayerPart._attr.Name._value);
+		});
+
+		for (var i = 0; i < layers.length - 1; i++) {
+			if (layers[i + 1] === layers[i]) {
+				duplicateLayers.push(layers[i]);
+			}
+		}
+
+		if (!duplicateLayers.length) {
+			App.modal.show(new Success());
+		} else {
+			App.modal.show(new Errors());
+		}
 	}
 });
 
