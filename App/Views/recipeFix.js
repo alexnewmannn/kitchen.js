@@ -1,11 +1,11 @@
 'use strict';
+/*global CodeMirror, xmlToJSON */
 
 var $ = require('jquery'),
 	Backbone = require('backbone'),
 	_ = require('underscore');
 
 var fixTemplate = require('../Templates/recipeFixTemplate.hbs');
-var Modal = require('../Regions/Modal.js');
 var App = require('../App.js');
 var Success = require('./success.js');
 var Errors = require('./error.js');
@@ -20,7 +20,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 	events: {
 		'click #parseRecipe': 'parseRecipe'
 	},
-	template:function(data) {
+	template:function() {
 		var compiledTemplate = fixTemplate();
 		return compiledTemplate;
 	},
@@ -31,6 +31,10 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			styleActiveLine: true,
 			matchBrackets: true,
 			scrollbarStyle: 'overlay'
+		});
+
+		myCodeMirror.on('change', function() {
+			$('button').text('Save');
 		});
 	},
 	parseRecipe: function() {
