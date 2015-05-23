@@ -7,15 +7,17 @@ var successTemplate = require('../../Templates/success.hbs');
 
 var successModal = Backbone.Marionette.ItemView.extend({
 	className: 'backdrop',
+	triggers: {
+		'click .close': 'close',
+		'click': 'close'
+	},
 	events: {
-		'click': 'close',
-		'click .close': 'close'
+		'click .results': function(e) {
+			e.stopPropagation();
+		}
 	},
 	template:function() {
 		return successTemplate();
-	},
-	close: function() {
-		this.trigger('close');
 	}
 });
 

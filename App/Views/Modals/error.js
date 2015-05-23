@@ -7,15 +7,17 @@ var errorsTemplate = require('../../Templates/error.hbs');
 
 var errorModal = Backbone.Marionette.ItemView.extend({
 	className: 'backdrop',
+	triggers: {
+		'click .close': 'close',
+		'click': 'close'
+	},
 	events: {
-		'click': 'close',
-		'click .close': 'close'
+		'click .results': function(e) {
+			e.stopPropagation();
+		}
 	},
 	template:function() {
 		return errorsTemplate();
-	},
-	close: function() {
-		this.trigger('close');
 	}
 });
 
