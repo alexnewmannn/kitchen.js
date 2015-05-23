@@ -1,0 +1,8 @@
+<div class="results">
+	<div class="close"></div>
+	<h1>Uh-Oh!</h1>
+	{{#each error}}
+		<p>You have {{this.value.length}} {{this.title}}</p>
+	{{/each}}
+	<button>Click to view</button>
+</div>

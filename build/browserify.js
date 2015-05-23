@@ -14,7 +14,7 @@ var onError = notify.onError({
 gulp.task('browserify', function () {
 	return browserify({
 		debug: true,
-		entries: ['./App/App.js']
+		entries: ['./App/Main.js']
 	}).bundle()
 		.on('error', onError)
 		.pipe(source('bundle.js'))
