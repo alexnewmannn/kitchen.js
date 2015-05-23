@@ -6,7 +6,7 @@ var $ = require('jquery'),
 var successTemplate = require('../../Templates/success.hbs');
 
 var successModal = Backbone.Marionette.ItemView.extend({
-	className: 'results',
+	className: 'backdrop',
 	events: {
 		'click': 'close',
 		'click .close': 'close'
