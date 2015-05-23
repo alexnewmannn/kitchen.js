@@ -478,10 +478,6 @@
       <LayerPart Name="Registration Page - Desktop" Description="Registration page on desktop that has the Casino Toolkit registration widget on" LayerRule="url(&quot;~/registration&quot;) and not mobile" />
       <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2014-12-08T11:10:12Z" PublishedUtc="2014-12-08T11:10:12Z" ModifiedUtc="2014-12-08T11:10:12Z" />
     </Layer>
-        <Layer Id="/Layer.LayerName=Registration Page - Desktop" Status="Published">
-      <LayerPart Name="Registration Page - Desktop" Description="Registration page on desktop that has the Casino Toolkit registration widget on" LayerRule="url(&quot;~/registration&quot;) and not mobile" />
-      <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2014-12-08T11:10:12Z" PublishedUtc="2014-12-08T11:10:12Z" ModifiedUtc="2014-12-08T11:10:12Z" />
-    </Layer>
 
     <Layer Id="/Layer.LayerName=Content Pages - Alssl Platforms - Authenticated Only on Mobile" Status="Published">
       <LayerPart Name="Content Pages - All Platforms - Authenticsssated only on Mobile" Description="All content pages, but hidden when signed out on mobile." LayerRule="contenttype(&quot;Page&quot;) and not (mobile and not authenticated )" />
@@ -510,6 +506,10 @@
     <Layer Id="/Layer.LayerName=Local Casinos - Desktop" Status="Published">
       <LayerPart Name="Local Casinos - Desktop" LayerRule="url(&quot;~/local-casinos&quot;) and not mobile" />
       <CommonPart Owner="/User.UserName=orchardadmin" CreatedUtc="2015-02-04T14:29:18Z" PublishedUtc="2015-02-04T14:29:18Z" ModifiedUtc="2015-02-04T14:29:18Z" />
+    </Layer>
+    <Layer Id="/Layer.LayerName=Payment Widget Page - All Platforms - Authenticated" Status="Published">
+      <LayerPart Name="Payment Widget Page - All Platforms - Authenticated" Description="Payment Widget pages when signed in on both platforms" LayerRule="Authenticated and url('~/Deposit')" />
+      <CommonPart Owner="/User.UserName=OrchardAdmin" CreatedUtc="2015-01-08T09:17:25Z" PublishedUtc="2015-01-08T09:17:25Z" ModifiedUtc="2015-01-27T17:31:43Z" />
     </Layer>
     <Layer Id="/Layer.LayerName=Payment Widget Page - All Platforms - Authenticated" Status="Published">
       <LayerPart Name="Payment Widget Page - All Platforms - Authenticated" Description="Payment Widget pages when signed in on both platforms" LayerRule="Authenticated and url('~/Deposit')" />

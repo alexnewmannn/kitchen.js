@@ -16,8 +16,18 @@ var errorModal = Backbone.Marionette.ItemView.extend({
 			e.stopPropagation();
 		}
 	},
-	template:function() {
-		return errorsTemplate();
+	template: function(data) {
+		console.log(data)
+		return errorsTemplate({error: data.error});
+	},
+	templateHelpers: function() {
+		console.log(this.options)
+		return {
+			error: this.options.data
+		};
+	},
+	onRender: function() {
+		console.log(this.options.data);
 	}
 });
 

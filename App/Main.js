@@ -13,7 +13,4 @@ var App = require('./App.js')
 
 $(function() {
 	var RecipeView = new View({}).render();
-	$(document).on('click', function(e){
-		console.log(e.toElement)
-	});
 });

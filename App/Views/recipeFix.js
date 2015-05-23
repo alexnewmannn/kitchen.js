@@ -13,6 +13,7 @@ var Errors = require('./Modals/error.js');
 var myCodeMirror;
 var recipe;
 var layerCollection;
+var results = {};
 
 var recipeFix = Backbone.Marionette.ItemView.extend({
 	el: '.recipe-form',
@@ -45,6 +46,8 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 
 		$('button').text($('button').data('success'));
 
+		this.widgetLayerComparison();
+		this.layerIdNameComparison();
 		this.duplicateLayer();
 	},
 
@@ -78,7 +81,11 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		});
 
 		var difference = _.difference(widgetLayers, layerNames);
-		console.log(difference);
+		if (difference.length) {
+			results.widgetLayer = {};
+			results.widgetLayer.value = difference;
+			results.widgetLayer.title = 'widget' + (results.widgetLayer.value.length > 1 ? 's' : '') + ' pointing to a layer that does not exist';
+		}
 	},
 
 	/*
@@ -95,7 +102,11 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		});
 
 		var difference = _.difference(layerId, layerName);
-		console.log(difference);
+		if (difference.length) {
+			results.layerIdName = {};
+			results.layerIdName.value = difference;
+			results.layerIdName.title = 'mismatched layer name' + (results.layerIdName.value.length > 1 ? 's' : '') + ' and ID' + (results.layerIdName.value.length > 1 ? 's' : '');
+		}
 	},
 
 	duplicateLayer: function() {
@@ -112,11 +123,20 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			}
 		}
 
-		if (!duplicateLayers.length) {
-			App.modal.show(new Success());
-		} else {
-			App.modal.show(new Errors());
+		if (duplicateLayers.length) {
+			results.duplicateLayers = {};
+			results.duplicateLayers.value = duplicateLayers;
+			results.duplicateLayers.title = 'duplicate layer' + (results.duplicateLayers.value.length > 1 ? 's' : '');
 		}
+
+		if (!_.isEmpty(results)) {
+			this.errorHandler();
+		}
+	},
+
+	errorHandler: function() {
+		console.log(results);
+		App.modal.show(new Errors({data: results}));
 	}
 });
 

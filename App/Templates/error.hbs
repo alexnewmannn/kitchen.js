@@ -1,5 +1,8 @@
 <div class="results">
 	<div class="close"></div>
 	<h1>Uh-Oh!</h1>
-	<p>We found the following issues with your recipe...</p>
+	{{#each error}}
+		<p>You have {{this.value.length}} {{this.title}}</p>
+	{{/each}}
+	<button>Click to view</button>
 </div>
