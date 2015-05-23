@@ -3,11 +3,12 @@
 var $ = require('jquery'),
 	Backbone = require('backbone'),
 	_ = require('underscore');
-var successTemplate = require('../Templates/success.hbs');
+var successTemplate = require('../../Templates/success.hbs');
 
 var successModal = Backbone.Marionette.ItemView.extend({
 	className: 'results',
 	events: {
+		'click': 'close',
 		'click .close': 'close'
 	},
 	template:function() {

@@ -5,7 +5,7 @@ Backbone.$ = $;
 var _ = require('underscore');
 
 var ModalRegion = Backbone.Marionette.Region.extend({
-	el: '.backdrop',
+	el: '.modal', // maybe i should add an extra div so the div is clickable by the item view
 	constructor: function() {
 		_.bindAll(this, 'getEl', 'showModal', 'hideModal');
 		Backbone.Marionette.Region.prototype.constructor.apply(this, arguments);
@@ -17,8 +17,13 @@ var ModalRegion = Backbone.Marionette.Region.extend({
 		this.$el.removeClass('hide');
 	},
 	hideModal: function() {
-		this.$el.addClass('hide');
-		this.empty(); // wrap this in an animation end or timeout
+		var transitions = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
+		var self = this;
+
+		this.$el.addClass('hide').off(transitions).on(transitions, function() {
+			$(this).off(transitions);
+			self.empty();
+		});
 	},
 	keyCheck: function() {
 		var self = this;

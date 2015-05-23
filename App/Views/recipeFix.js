@@ -7,8 +7,8 @@ var $ = require('jquery'),
 
 var fixTemplate = require('../Templates/recipeFixTemplate.hbs');
 var App = require('../App.js');
-var Success = require('./success.js');
-var Errors = require('./error.js');
+var Success = require('./Modals/success.js');
+var Errors = require('./Modals/error.js');
 
 var myCodeMirror;
 var recipe;
