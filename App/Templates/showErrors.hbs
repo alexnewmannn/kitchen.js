@@ -1,7 +1,11 @@
 <div class="results">
 	<div class="close"></div>
-	<h1>Please amend the following</h1>
-		{{#each error}}
-		<p>{{this.value}}</p>
+	{{#each error}}
+	<h1>{{this.description}}</h1>
+		<div class="layer-container">
+			{{#each this.value}}
+				<div class="layer-item">{{this}}</div>
+			{{/each}}
+		</div>
 	{{/each}}
 </div>

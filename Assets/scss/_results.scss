@@ -1,6 +1,6 @@
 .results {
 	padding: 30px;
-	max-width: 80%;
+	max-width: 60%;
 	margin-top: 15px;
 	overflow-y: auto;
 	max-height: 500px;
@@ -31,6 +31,14 @@
 		font-size: 1.9rem;
 		text-align: center;
 		line-height: 1.9rem * $ratio;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.6rem;
+		text-align: center;
+		line-height: 1.6rem * $ratio;
+		color: lighten($dark-grey, 50%);
 	}
 
 	p:only-child {

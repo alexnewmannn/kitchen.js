@@ -20,6 +20,7 @@ var errorModal = Backbone.Marionette.ItemView.extend({
 		'click button': 'advanceStep'
 	},
 	template: function(data) {
+		console.log(data.error)
 		return errorsTemplate({error: data.error});
 	},
 	templateHelpers: function() {
