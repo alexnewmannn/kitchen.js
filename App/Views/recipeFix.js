@@ -56,13 +56,14 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 	 * the widget's layer and check if the layer exists
 	*/
 	widgetLayerComparison: function() {
-		var layerNames = [];
 		var widgetLayers = [];
-		layerCollection = recipe.Layer;
+		var layerNames = recipe.Layer;
 
-		_.map(layerCollection, function(currentLayer) {
-			layerNames.push('/Layer.LayerName=' + currentLayer.LayerPart._attr.Name._value);
-		});
+		var returnLayer = function(layer) {
+			return '/Layer.LayerName=' + layer.LayerPart._attr.Name._value;
+		};
+
+		layerNames = _.map(layerNames, returnLayer);
 
 		_.map(recipe, function(widget) {
 			if (_.isArray(widget)) {
@@ -79,6 +80,10 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 				});
 			}
 		});
+
+		console.log(widgetLayers);
+		console.log(layerNames);
+
 
 		var difference = _.difference(widgetLayers, layerNames);
 		if (difference.length) {
