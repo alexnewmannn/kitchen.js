@@ -1,0 +1,11 @@
+<div class="results">
+	<div class="close"></div>
+	{{#each error}}
+	<h1>{{this.description}}</h1>
+		<div class="layer-container">
+			{{#each this.value}}
+				<div class="layer-item">{{this}}</div>
+			{{/each}}
+		</div>
+	{{/each}}
+</div>

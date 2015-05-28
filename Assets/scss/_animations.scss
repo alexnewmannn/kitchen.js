@@ -9,3 +9,26 @@
 		transform: none;
 	}
 }
+
+@keyframes slideInLeft {
+	0% {
+		transform: translate3d(-100%, 0, 0);
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes slideOutRight {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
+}

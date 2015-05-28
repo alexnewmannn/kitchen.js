@@ -56,13 +56,18 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 	 * the widget's layer and check if the layer exists
 	*/
 	widgetLayerComparison: function() {
-		var layerNames = [];
 		var widgetLayers = [];
-		layerCollection = recipe.Layer;
+		var layerNames = recipe.Layer;
 
-		_.map(layerCollection, function(currentLayer) {
-			layerNames.push('/Layer.LayerName=' + currentLayer.LayerPart._attr.Name._value);
-		});
+		// Reset the value of the array and Results object on each call
+		widgetLayers.length = 0;
+		results = {};
+
+		var returnLayer = function(layer) {
+			return '/Layer.LayerName=' + layer.LayerPart._attr.Name._value;
+		};
+
+		layerNames = _.map(layerNames, returnLayer);
 
 		_.map(recipe, function(widget) {
 			if (_.isArray(widget)) {
@@ -85,6 +90,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.widgetLayer = {};
 			results.widgetLayer.value = difference;
 			results.widgetLayer.title = 'widget' + (results.widgetLayer.value.length > 1 ? 's' : '') + ' pointing to a layer that does not exist';
+			results.widgetLayer.description = 'Please add the following layer' + (results.widgetLayer.value.length > 1 ? 's' : '') + ' to your recipe';
 		}
 	},
 
@@ -96,6 +102,10 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		var layerId = [];
 		var layerName = [];
 
+		// Reset the value of the array on each call
+		layerId.length = 0;
+		layerName.length = 0;
+
 		_.each(recipe.Layer, function(currentLayer) {
 			layerId.push(currentLayer._attr.Id._value.split('=')[1]);
 			layerName.push(currentLayer.LayerPart._attr.Name._value);
@@ -106,12 +116,17 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.layerIdName = {};
 			results.layerIdName.value = difference;
 			results.layerIdName.title = 'mismatched layer name' + (results.layerIdName.value.length > 1 ? 's' : '') + ' and ID' + (results.layerIdName.value.length > 1 ? 's' : '');
+			results.layerIdName.description = 'Please update the ID' + (results.layerIdName.value.length > 1 ? 's' : '') + ' and Name' + (results.layerIdName.value.length > 1 ? 's' : '') + ' to the following layer' + (results.layerIdName.value.length > 1 ? 's' : '') + ' in your recipe';
 		}
 	},
 
 	duplicateLayer: function() {
 		var layers = [];
 		var duplicateLayers = [];
+
+		// Reset the value of the array on each call
+		layers.length = 0;
+		duplicateLayers.length = 0;
 
 		_.each(recipe.Layer, function(currentLayer) {
 			layers.push(currentLayer.LayerPart._attr.Name._value);
@@ -127,6 +142,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.duplicateLayers = {};
 			results.duplicateLayers.value = duplicateLayers;
 			results.duplicateLayers.title = 'duplicate layer' + (results.duplicateLayers.value.length > 1 ? 's' : '');
+			results.duplicateLayers.description = 'Please resolve the following duplicate layer' + (results.duplicateLayers.value.length > 1 ? 's' : '') + ' in your recipe';
 		}
 
 		if (!_.isEmpty(results)) {
@@ -135,7 +151,6 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 	},
 
 	errorHandler: function() {
-		console.log(results);
 		App.modal.show(new Errors({data: results}));
 	}
 });

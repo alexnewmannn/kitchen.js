@@ -15,6 +15,7 @@ var ModalRegion = Backbone.Marionette.Region.extend({
 		this.keyCheck();
 		this.$el.removeClass('hide');
 		view.on('close', this.hideModal, this);
+		view.on('test', this.test, this);
 	},
 	hideModal: function() {
 		var transitions = 'transitionend webkitTransitionEnd';
@@ -33,6 +34,14 @@ var ModalRegion = Backbone.Marionette.Region.extend({
 				self.hideModal();
 			}
 		});
+	},
+	test: function(view) {
+		view.$el.addClass('slide-out');
+		this.empty();
+
+	},
+	onBeforeSwap: function(view) {
+		view.$el.addClass('slide-in');
 	}
 });
 
