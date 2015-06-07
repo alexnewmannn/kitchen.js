@@ -14,5 +14,5 @@ gulp.task('sass', function () {
             }
         }))
         .pipe(gulp.dest('./Assets/css'))
-		.pipe(livereload({start: true}));
+		.pipe(livereload());
 });
