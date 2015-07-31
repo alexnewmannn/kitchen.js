@@ -176,8 +176,6 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 
 			var s = (brokenMenuWidgets.length > 1) ? 's' : '';
 
-			console.log(brokenMenuWidgetsNames[0]);
-
 			results.brokenMenus = {};
 			results.brokenMenus.value = brokenMenuWidgetsNames;
 			results.brokenMenus.title = "Menu widget" + s + " with missing menu" + s;
