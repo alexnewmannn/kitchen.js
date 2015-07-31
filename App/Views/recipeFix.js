@@ -145,10 +145,6 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.duplicateLayers.title = 'duplicate layer' + (results.duplicateLayers.value.length > 1 ? 's' : '');
 			results.duplicateLayers.description = 'Please resolve the following duplicate layer' + (results.duplicateLayers.value.length > 1 ? 's' : '') + ' in your recipe';
 		}
-
-		if (!_.isEmpty(results)) {
-			this.errorHandler();
-		}
 	},
 
 	menuMenuWidgetComparison: function() {
@@ -179,7 +175,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.brokenMenus = {};
 			results.brokenMenus.value = brokenMenuWidgetsNames;
 			results.brokenMenus.title = "Menu widget" + s + " with missing menu" + s;
-			results.brokenMenus.description = "The following menu widget" + s + " don't have a menu: ";
+			results.brokenMenus.description = "The following menu widget" + s + (brokenMenuWidgets.length > 1 ? " don't" : " doesn't") + " have a menu: ";
 		}
 
 		if (!_.isEmpty(results)) {
