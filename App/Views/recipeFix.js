@@ -50,6 +50,7 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 		this.layerIdNameComparison();
 		this.duplicateLayer();
 		this.menuMenuWidgetComparison();
+		this.menuItemMenuComparison();
 	},
 
 	/*
@@ -176,6 +177,32 @@ var recipeFix = Backbone.Marionette.ItemView.extend({
 			results.brokenMenus.value = brokenMenuWidgetsNames;
 			results.brokenMenus.title = "Menu widget" + s + " with missing menu" + s;
 			results.brokenMenus.description = "The following menu widget" + s + (brokenMenuWidgets.length > 1 ? " don't" : " doesn't") + " have a menu: ";
+		}
+	},
+
+	menuItemMenuComparison: function() {
+		var menus = [];
+		var brokenMenuItems = [];
+
+		_.each(recipe.Menu, function(currentMenu) {
+			menus.push(currentMenu._attr.Id._value);
+		});
+
+		_.each([recipe.MenuItem, recipe.HtmlMenuItem, recipe.ContentMenuItem], function(menuItemType) {
+			_.each(menuItemType, function(currentMenuItem) {
+				if (menus.indexOf(currentMenuItem.MenuPart._attr.Menu._value) == -1) {
+					brokenMenuItems.push(currentMenuItem.MenuPart._attr.MenuText._value + " " + currentMenuItem._attr.Id._value);
+				}
+			});
+		});
+
+		if (brokenMenuItems.length) {
+			var s = (brokenMenuItems.length > 1) ? 's' : '';
+
+			results.brokenItems = {};
+			results.brokenItems.value = brokenMenuItems;
+			results.brokenItems.title = "Menu item" + s + " without a menu";
+			results.brokenItems.description = "The following menu item" + s + (brokenMenuItems.length > 1 ? " are" : " is") + " missing a menu";
 		}
 
 		if (!_.isEmpty(results)) {
